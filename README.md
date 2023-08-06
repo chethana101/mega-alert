@@ -6,7 +6,7 @@
   </div>
   <p>Notification Alert Library</p>
   <p>Mega Alert is a library for add notifications alerts for website or the web applications.</p>
-  <img height="400"
+  <img height="350"
         src="https://github.com/chethana101/mega-alert/blob/main/assets/gif/mega-alert-demo.gif">
 </div>
 
