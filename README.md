@@ -1,7 +1,7 @@
 <div align="center">
   <div style="display: flex; justify-content: center; align-items: center;">
     <img width="80" height="80"
-        src="https://github.com/chethana101/mega-alert/assets/images/mega-alert-logo.png">
+        src="https://github.com/chethana101/mega-alert/blob/main/assets/images/mega-alert-logo.png">
     <div style="font-size: 40px; font-weight: 600; margin-left: 20px">Mega Alert</div>
   </div>
   <p>Notification Alert Library</p>
