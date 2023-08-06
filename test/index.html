@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Mega Alert</title>
+    <link rel="stylesheet" href="../css/mega-alert.css">
+    <script src="../mega-alert.js"></script>
+</head>
+<body>
+<!--<div class="mega-alert-container mega-alert-bottom-right">-->
+<!--</div>-->
+<!-- Light Theme -->
+<div id="mega-alert-container">
+</div>
+<script>
+    const element = document.createElement("div");
+    let options = {
+        theme: "light",
+        position: "top-center",
+        icon: true,
+        closeIcon: true,
+        animation: true,
+        leftBorderColor: true,
+        // iconElement: "span",
+        // setCustomIcons: {
+        //     error: "", // String, URL, Elements
+        //     warning: "",
+        //     info: "",
+        //     success: "",
+        // },
+        // titleFontSize: "10px",
+        // paragraphFontSize: "10px",
+        // autoClose: 5000,
+        // progressBar: false,
+        // progressBar: false,
+        // closeOnBodyClick: true,
+    };
+
+    const megaAlert = MegaAlert("#mega-alert-container", options);
+
+    // Error Alert
+    // megaAlert.error({
+    //     title: "Here is the title",
+    //     paragraph: "Here is the alert paragraph",
+    // });
+
+    // Information Alert
+    megaAlert.info({
+        titleVisibility: true,
+        paragraphVisibility: true,
+        title: "Here is the title",
+        // paragraph: "Here is the alert paragraph",
+        buttons: [
+            {
+                buttonName: "Close",
+                onClick: function (alert) {
+                    megaAlert.removeAlert(alert);
+                }
+            }
+        ]
+    });
+
+    // Warning Alert
+    // megaAlert.warning();
+
+    // Success Alert
+    // megaAlert.success();
+
+    // Loading Alert
+    // const loading = megaAlert.loading({
+    //     title: "Loading in progress..."
+    // });
+
+    // Remove specific alert
+    // megaAlert.removeAlert(loading);
+
+    // Promise Alert
+    const myPromise = new Promise((resolve, reject) => {
+        // Simulate an asynchronous operation
+        setTimeout(() => {
+            const randomNumber = Math.random();
+            if (randomNumber > 0.5) {
+                resolve("Promise resolved successfully!");
+            } else {
+                reject("Promise rejected!");
+            }
+        }, 2000);
+    });
+
+    megaAlert.promise({
+        promise: myPromise,
+        title: "Promise in progress...",
+        promiseRejectTitle: "Promise is rejected",
+        promiseResolvedTitle: "Promise is resolved",
+        promiseRejectParagraph: "Promise is rejected because if the reason.",
+        promiseResolvedParagraph: "Promise is resolved because if the reason.",
+    });
+
+    // Remove all alerts
+    // megaAlert.removeAllAlerts();
+</script>
+</body>
+</html>
