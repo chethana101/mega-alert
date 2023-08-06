@@ -1,6 +1,6 @@
 <div align="center">
   <div style="display: flex; justify-content: center; align-items: center;">
-    <img width="80" height="80"
+    <img width="200" height="200"
         src="https://github.com/chethana101/mega-alert/blob/main/assets/images/mega-alert-logo.png">
     <h1>Mega Alert</h1>
   </div>
