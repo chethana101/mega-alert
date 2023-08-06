@@ -2,7 +2,7 @@
   <div style="display: flex; justify-content: center; align-items: center;">
     <img width="80" height="80"
         src="https://github.com/chethana101/mega-alert/blob/main/assets/images/mega-alert-logo.png">
-    <div style="font-size: 40px; font-weight: 600; margin-left: 20px">Mega Alert</div>
+    <h1>Mega Alert</h1>
   </div>
   <p>Notification Alert Library</p>
   <p>Mega Alert is a library for add notifications alerts for website or the web applications.</p>
