@@ -5,99 +5,159 @@
     <title>Mega Alert</title>
     <link rel="stylesheet" href="../css/mega-alert.css">
     <script src="../mega-alert.js"></script>
+    <script src="../test.js" type="module"></script>
 </head>
 <body>
 <!--<div class="mega-alert-container mega-alert-bottom-right">-->
 <!--</div>-->
 <!-- Light Theme -->
-<div id="mega-alert-container">
-</div>
+<div id="mega-alert-container-top-left"></div>
+<div id="mega-alert-container-top-right"></div>
+<div id="mega-alert-container-top-center"></div>
+<div id="mega-alert-container-bottom-left"></div>
+<div id="mega-alert-container-bottom-center"></div>
+<div id="mega-alert-container-bottom-right"></div>
 <script>
-    const element = document.createElement("div");
-    let options = {
-        theme: "light",
-        position: "top-center",
-        icon: true,
-        closeIcon: true,
-        animation: true,
-        leftBorderColor: true,
-        // iconElement: "span",
-        // setCustomIcons: {
-        //     error: "", // String, URL, Elements
-        //     warning: "",
-        //     info: "",
-        //     success: "",
-        // },
-        // titleFontSize: "10px",
-        // paragraphFontSize: "10px",
-        // autoClose: 5000,
-        // progressBar: false,
-        // progressBar: false,
-        // closeOnBodyClick: true,
-    };
+    setTimeout(() => {
+        /** -------------------------------------------
+         * Light Theme
+         * * ------------------------------------------ */
+        let optionTopLeft = {
+            theme: "light",
+            position: "top-left",
+            icon: true,
+            closeIcon: true,
+            animation: true,
+            leftBorderColor: false,
+            autoClose: 5000,
+            progressBar: true,
+        };
 
-    const megaAlert = MegaAlert("#mega-alert-container", options);
+        const megaAlert = MegaAlert("#mega-alert-container-top-left", optionTopLeft);
+        megaAlert.error();
+        megaAlert.info();
+        megaAlert.warning();
+        megaAlert.success();
 
-    // Error Alert
-    // megaAlert.error({
-    //     title: "Here is the title",
-    //     paragraph: "Here is the alert paragraph",
-    // });
+        /** -------------------------------------------
+         * Dark Theme
+         * * ------------------------------------------ */
+        let optionTopCenter = {
+            theme: "dark",
+            position: "top-center",
+            icon: true,
+            closeIcon: true,
+            animation: true,
+            leftBorderColor: false,
+            autoClose: 5000,
+            progressBar: true,
+        };
 
-    // Information Alert
-    megaAlert.info({
-        titleVisibility: true,
-        paragraphVisibility: true,
-        title: "Here is the title",
-        // paragraph: "Here is the alert paragraph",
-        buttons: [
-            {
-                buttonName: "Close",
-                onClick: function (alert) {
-                    megaAlert.removeAlert(alert);
-                }
-            }
-        ]
-    });
+        const megaAlertCenter = MegaAlert("#mega-alert-container-top-center", optionTopCenter);
+        megaAlertCenter.error();
+        megaAlertCenter.info();
+        megaAlertCenter.warning();
+        megaAlertCenter.success();
 
-    // Warning Alert
-    // megaAlert.warning();
+        /** -------------------------------------------
+         * Colored Theme
+         * * ------------------------------------------ */
+        let optionTopRight = {
+            theme: "colored",
+            position: "top-right",
+            icon: true,
+            closeIcon: true,
+            animation: true,
+            leftBorderColor: false,
+            autoClose: 5000,
+            progressBar: true,
+        };
 
-    // Success Alert
-    // megaAlert.success();
+        const megaAlertRight = MegaAlert("#mega-alert-container-top-right", optionTopRight);
+        megaAlertRight.error();
+        megaAlertRight.info();
+        megaAlertRight.warning();
+        megaAlertRight.success();
 
-    // Loading Alert
-    // const loading = megaAlert.loading({
-    //     title: "Loading in progress..."
-    // });
+        /** -------------------------------------------
+         * Promise Alerts Light
+         * -------------------------------------------- */
+        let optionBottomLeft = {
+            theme: "light",
+            position: "bottom-left",
+            icon: true,
+            closeIcon: true,
+            animation: true,
+            leftBorderColor: false,
+            autoClose: 5000,
+            progressBar: true,
+        };
+        const megaAlertBottomLeft = MegaAlert("#mega-alert-container-bottom-left", optionBottomLeft);
+        // Success Alert
+        const successPromise = new Promise((resolve, reject) => {
+            setTimeout(() => {
+                resolve("Promise resolved");
+            }, 5000);
+        });
+        megaAlertBottomLeft.promise({
+            promise: successPromise,
+        });
+        // Reject Alert
+        const rejectPromise = new Promise((resolve, reject) => {
+            setTimeout(() => {
+                reject("Promise rejected");
+            }, 5000);
+        });
+        megaAlertBottomLeft.promise({
+            promise: rejectPromise,
+        });
 
-    // Remove specific alert
-    // megaAlert.removeAlert(loading);
+        /** -------------------------------------------
+         * Promise Alerts Dark
+         * -------------------------------------------- */
+        let optionBottomCenterDark = {
+            theme: "dark",
+            position: "bottom-center",
+            icon: true,
+            closeIcon: true,
+            animation: true,
+            leftBorderColor: false,
+            autoClose: 5000,
+            progressBar: true,
+        };
+        const megaAlertBottomCenterDark = MegaAlert("#mega-alert-container-bottom-center", optionBottomCenterDark);
+        // Success Alert
+        megaAlertBottomCenterDark.promise({
+            promise: successPromise,
+        });
+        // Reject Alert
+        megaAlertBottomCenterDark.promise({
+            promise: rejectPromise,
+        });
 
-    // Promise Alert
-    const myPromise = new Promise((resolve, reject) => {
-        // Simulate an asynchronous operation
-        setTimeout(() => {
-            const randomNumber = Math.random();
-            if (randomNumber > 0.5) {
-                resolve("Promise resolved successfully!");
-            } else {
-                reject("Promise rejected!");
-            }
-        }, 2000);
-    });
-
-    megaAlert.promise({
-        promise: myPromise,
-        title: "Promise in progress...",
-        promiseRejectTitle: "Promise is rejected",
-        promiseResolvedTitle: "Promise is resolved",
-        promiseRejectParagraph: "Promise is rejected because if the reason.",
-        promiseResolvedParagraph: "Promise is resolved because if the reason.",
-    });
-
-    // Remove all alerts
-    // megaAlert.removeAllAlerts();
+        /** -------------------------------------------
+         * Promise Alerts Colored
+         * -------------------------------------------- */
+        let optionBottomRightColored = {
+            theme: "colored",
+            position: "bottom-right",
+            icon: true,
+            closeIcon: true,
+            animation: true,
+            leftBorderColor: false,
+            autoClose: 5000,
+            progressBar: true,
+        };
+        const megaAlertBottomRightColored = MegaAlert("#mega-alert-container-bottom-right", optionBottomRightColored);
+        // Success Alert
+        megaAlertBottomRightColored.promise({
+            promise: successPromise,
+        });
+        // Reject Alert
+        megaAlertBottomRightColored.promise({
+            promise: rejectPromise,
+        });
+    }, 5000);
 </script>
 </body>
 </html>

@@ -6,6 +6,8 @@
   </div>
   <p>Notification Alert Library</p>
   <p>Mega Alert is a library for add notifications alerts for website or the web applications.</p>
+  <img height="400"
+        src="https://github.com/chethana101/mega-alert/blob/main/assets/gif/mega-alert-demo.gif">
 </div>
 
 ## Installation
@@ -25,7 +27,12 @@ or inline
 ### Markup
 
 ```html
-<div id="mega-alert-container">
+<head>
+    <link rel="stylesheet" href="mega-alert.min.css">
+</head>
+<body>
+    <div id="mega-alert-container">
+</body>
 ```
 ### Default initialization
 
@@ -137,6 +144,27 @@ megaAlert.promise({
 ```
 
 That means if promise is pending, it will shop the pending alert (like a loading), then if the promise will success it will show the success alert otherwise show the promise rejected alert. There are also some configurations for the control reject and the resolved alerts. (Check the above code)
+
+### Removing Alerts
+
+Mega alert also provides the capabilities to remove the specific alert or all the alerts at once. Here is the code example.
+
+```js
+// Initialize
+const megaAlert = MegaAlert("#mega-alert-container", options);
+
+// Alerts
+const errorAlert = megaAlert.error();
+const successAlert = megaAlert.success();
+
+// Remove specific alert
+megaAlert.removeAlert(errorAlert);
+megaAlert.removeAlert(successAlert);
+
+// Remove all the alerts
+megaAlert.removeAllAlerts();
+
+```
 
 ## Options
 

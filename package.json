@@ -1,8 +1,8 @@
 {
   "name": "mega-alert",
-  "version": "1.0.0",
-  "description": "Notification library",
-  "main": "mega-alert.js",
+  "version": "1.0.1",
+  "description": "Alert notification library",
+  "main": "mega-alert.min.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -10,6 +10,12 @@
     "type": "git",
     "url": "git+https://github.com/chethana101/mega-alert.git"
   },
+  "keywords": [
+    "alert",
+    "notification",
+    "handling",
+    "message box"
+  ],
   "author": "Chethana Perera",
   "license": "MIT",
   "bugs": {
