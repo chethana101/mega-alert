@@ -165,6 +165,30 @@ megaAlert.removeAlert(successAlert);
 megaAlert.removeAllAlerts();
 
 ```
+## Custom CSS
+
+You can also override the default css classes. Here are some examples.
+
+```css
+.mega-alert-container {
+    width: 320px; // Alert container width
+}
+
+.mega-alert {
+    padding: 15px 12px; // Alert box padding
+}
+
+.mega-alert-icon {
+    width: 20px; // Alert icon width
+    height: 20px; // Alert icon height
+}
+
+.mega-alert-close-button {
+    width: 20px; // Alert close button width
+    height: 20px; // Alert close button height
+}
+
+```
 
 ## Options
 
