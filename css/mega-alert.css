@@ -49,16 +49,26 @@ body {
     -webkit-transform: translateZ(9999);
     position: fixed;
     padding: 4px;
-    width: 320px;
+    width: 400px;
     box-sizing: border-box;
 }
+
+@media screen and (max-width: 992px) {
+    .mega-alert-container {
+        width: 100%;
+        right: 0;
+        left: 0;
+        padding: 0px 20px;
+    }
+}
+
 
 .mega-alert {
     width: 100%;
     position: relative;
     box-sizing: border-box;
     margin-bottom: 1rem;
-    padding: 15px 12px;
+    padding: 25px 12px;
     border-radius: 4px;
     box-shadow: 0 1px 10px 0 rgba(0, 0, 0, .1), 0 2px 15px 0 rgba(0, 0, 0, .05);
     display: -ms-flexbox;
